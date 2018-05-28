@@ -42,10 +42,19 @@ public class EchoIT {
     @Test
     public void trioTest() {
 
-        get("/trio").then().assertThat().body("message", equalTo("numSq = 4 leaveFree = 0,0 !"));
-        get("/trio?numSq=63&leaveFree=1,2").then().assertThat().body("message", equalTo("numSq = 63 leaveFree = 1,2 !"));
+        get("/trio").then().assertThat().body("message", equalTo("breadth = 2, height = 2, vacant = 0,0"));
+        get("/trio?breadth=8&height=8&vacant=7,7").then().assertThat().body("message", equalTo("breadth = 8, height = 8, vacant = 7,7"));
 
     }
+
+    @Test
+    public void _4x4Test() {
+
+
+        //get("/trio?breadth=4&height=4&vacant=0,0").then().assertThat().body("message", equalTo("{ }"));
+
+    }
+
 }
 
 
