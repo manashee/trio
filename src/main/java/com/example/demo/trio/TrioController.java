@@ -20,7 +20,7 @@ public class TrioController {
         Board board = new Board(breadth, height, vacant);
 
         if (!board.isVacantValid())
-            throw new InvalidVacantCoordinatesException("ERROR: Vacant square is outside the board!. Vacant (x,y) is larger than breadth or height of the board!. ");
+            throw new InvalidVacantCoordinatesException(String.format("ERROR: Vacant square specified is outside the board. x and y coordinates of vacant square is bigger than breadth or height. breadth = %1$d, height = %2$d, vacant_x = %3d, vacant_y = %4$d", board.getBreadth(), board.getHeight(), board.getVacant_x(), board.getVacant_y()));
 
         return board;
         //:

@@ -6,5 +6,4 @@ public class InvalidVacantCoordinatesException extends RuntimeException {
         super(e);
     }
 
-
 }
