@@ -15,7 +15,7 @@ public class TrioController {
 
     @RequestMapping("/trio")
     public Trio greeting(@RequestParam(value = "numSq", defaultValue = "4") int numSq,
-                         @RequestParam(value = "leaveFree", defaultValue = "9") String leaveFree) {
+                         @RequestParam(value = "leaveFree", defaultValue = "0,0") String leaveFree) {
         return new Trio(counter.incrementAndGet(),
                 String.format(template, numSq, leaveFree));
     }

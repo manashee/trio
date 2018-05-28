@@ -41,8 +41,8 @@ public class EchoIT {
 
     @Test
     public void trioTest() {
-        //get("/trio?numSq=64&leaveFree?1,2").then().assertThat().body("message", equalTo("64-9"));
-        get("/trio").then().assertThat().body("message", equalTo("numSq = 4 leaveFree = 9 !"));
+
+        get("/trio").then().assertThat().body("message", equalTo("numSq = 4 leaveFree = 0,0 !"));
         get("/trio?numSq=63&leaveFree=1,2").then().assertThat().body("message", equalTo("numSq = 63 leaveFree = 1,2 !"));
 
     }
