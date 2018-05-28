@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.trio;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +16,14 @@ public class TrioController {
     @RequestMapping("/trio")
     public Board greeting(@RequestParam(value = "breadth", defaultValue = "2") int breadth,
                           @RequestParam(value = "height", defaultValue = "2") int height,
-                          @RequestParam(value = "vacant", defaultValue = "0,0") String vacant) {
-        return new Board(breadth, height, vacant);
+                          @RequestParam(value = "vacant", defaultValue = "0,0") String vacant) throws InvalidVacantCoordinatesException {
+        Board board = new Board(breadth, height, vacant);
+
+        if (!board.isVacantValid())
+            throw new InvalidVacantCoordinatesException("ERROR: Vacant square is outside the board!. Vacant (x,y) is larger than breadth or height of the board!. ");
+
+        return board;
+        //:
+
     }
 }

@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.trio;
 
 import com.jayway.restassured.RestAssured;
 import org.junit.Before;
@@ -42,19 +42,29 @@ public class EchoIT {
     @Test
     public void trioTest() {
 
-        get("/trio").then().assertThat().body("message", equalTo("breadth = 2, height = 2, vacant = 0,0"));
+        //get("/trio").then().assertThat().body("message", equalTo("breadth = 2, height = 2, vacant = 0,0"));
+        get("/trio?breadth=4&height=4&vacant=3,3").then().assertThat().body("message", equalTo("breadth = 4, height = 4, vacant = 3,3"));
+
+    }
+
+    @Test
+    public void InvalidVacantCoordinatesExceptionTest() {
+
         get("/trio?breadth=8&height=8&vacant=7,7").then().assertThat().body("message", equalTo("breadth = 8, height = 8, vacant = 7,7"));
+
+        //get("/trio?breadth=4&height=4&vacant=0,0").then().assertThat().body("message", equalTo("{ }"));
 
     }
 
     @Test
     public void _4x4Test() {
 
+        //get("/trio").then().assertThat().body("message", equalTo("breadth = 2, height = 2, vacant = 0,0"));
+        //get("/trio?breadth=8&height=8&vacant=7,7").then().assertThat().body("message", equalTo("breadth = 8, height = 8, vacant = 7,7"));
 
         //get("/trio?breadth=4&height=4&vacant=0,0").then().assertThat().body("message", equalTo("{ }"));
 
     }
-
 }
 
 
