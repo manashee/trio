@@ -50,6 +50,20 @@ public class BoardTest {
 
     }
 
+    @Test
+    public void _2x2Test() {
+
+        Board b1 = new Board(0, 0);
+        Assert.assertArrayEquals(b1.getTriominos(), new Trio[0]);
+
+    }
+
+    @Test
+    public void _2x2Test1() {
+        Board b1 = new Board(2, 2);
+        Trio[] array = {new Trio(0, 0, 1, 0, 1, 1)};
+        Assert.assertArrayEquals(b1.calcTriominos(2, 2, new Square(0, 0)), array);
+    }
 }
 
 

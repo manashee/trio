@@ -103,6 +103,19 @@ public class EchoIT {
                 );
     }
 
+    @Test
+    public void _2x2Test() {
+
+        get("/trio?breadth=2&height=2").then().assertThat().body
+                ("breadth", equalTo(2)
+                        , "height", equalTo(2)
+                        , "vacant_x", equalTo(-1)
+                        , "vacant_y", equalTo(-1)
+                        , "triominos", Matchers.hasSize(1)
+                );
+    }
+
+
 }
 
 
