@@ -5,6 +5,7 @@ import javafx.util.Pair;
 public class Board {
 
 
+    private Trio[] triominos = null;
     private final int breadth;
     private final int height;
     private final String vacant;
@@ -19,10 +20,16 @@ public class Board {
         this.height = height;
         this.vacant = vacant;
 
-        vacant_xy = new Pair<>(Integer.valueOf(vacant.split(",")[0]), Integer.valueOf(vacant.split(",")[1]));
-
+        if (null == vacant) {
+            vacant_xy = new Pair<>(-1, -1);
+        } else {
+            vacant_xy = new Pair<>(Integer.valueOf(vacant.split(",")[0]), Integer.valueOf(vacant.split(",")[1]));
+        }
     }
 
+    Board(int breadth, int height) {
+        this(breadth, height, null);
+    }
 
     public int getBreadth() {
         return breadth;
@@ -50,6 +57,15 @@ public class Board {
             return true;
         else
             return (getVacant_x() < getBreadth() && getVacant_y() < getHeight());
+    }
+
+    // min 4 sqaures are required to fit in a triomino.
+    public Trio[] getTriominos() {
+        if (getBreadth() * getHeight() < 4) {
+            this.triominos = new Trio[0];
+        }
+
+        return new Trio[0];
     }
 
 }

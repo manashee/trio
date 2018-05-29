@@ -42,6 +42,13 @@ public class BoardTest {
 
     }
 
+    @Test
+    public void _0x0Test() {
+
+        Board b1 = new Board(0, 0);
+        Assert.assertArrayEquals(b1.getTriominos(), new Trio[0]);
+
+    }
 
 }
 

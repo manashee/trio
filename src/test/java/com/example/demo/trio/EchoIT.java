@@ -1,6 +1,7 @@
 package com.example.demo.trio;
 
 import com.jayway.restassured.RestAssured;
+import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,12 +81,28 @@ public class EchoIT {
     @Test
     public void _0x0Test() {
 
-        //get("/trio").then().assertThat().body("message", equalTo("breadth = 2, height = 2, vacant = 0,0"));
-        //get("/trio?breadth=8&height=8&vacant=7,7").then().assertThat().body("message", equalTo("breadth = 8, height = 8, vacant = 7,7"));
-
-        //get("/trio?breadth=4&height=4&vacant=0,0").then().assertThat().body("message", equalTo("{ }"));
-
+        get("/trio?breadth=0&height=0").then().assertThat().body
+                ("breadth", equalTo(0)
+                        , "height", equalTo(0)
+                        , "vacant_x", equalTo(-1)
+                        , "vacant_y", equalTo(-1)
+                        , "triominos", Matchers.hasSize(0)
+                );
     }
+
+
+    @Test
+    public void _1x1Test() {
+
+        get("/trio?breadth=0&height=0").then().assertThat().body
+                ("breadth", equalTo(0)
+                        , "height", equalTo(0)
+                        , "vacant_x", equalTo(-1)
+                        , "vacant_y", equalTo(-1)
+                        , "triominos", Matchers.hasSize(0)
+                );
+    }
+
 }
 
 
