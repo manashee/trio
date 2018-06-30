@@ -4,6 +4,9 @@ public class Board {
 
 
     private Trio[] triominos = null;
+
+    private Square [] squares = null;
+
     private final int breadth;
     private final int height;
     private Square vacantSq;
@@ -65,6 +68,17 @@ public class Board {
             return array;
         }
         return null;
+    }
+
+
+    public Square [] getSquares() {
+        return squares;
+    }
+
+
+    public Square [] getTotalUnOccupiedSquares(int breadth, int height) {
+        Square [] array = {new Square(0, 0) , new Square (0,1), new Square (1,0), new Square (1,1)};
+        return array;
     }
 
     // min 4 sqaures are required to fit in a triomino.

@@ -4,7 +4,6 @@ import javafx.util.Pair;
 
 public class Square {
 
-
     private Pair<Integer, Integer> xy;
 
     public Square(int x, int y) {
@@ -14,11 +13,11 @@ public class Square {
     }
 
     public int getX() {
-        return xy.getKey();
+        return xy.getKey().intValue();
     }
 
     public int getY() {
-        return xy.getValue();
+        return xy.getValue().intValue();
     }
 
 
@@ -42,5 +41,53 @@ public class Square {
         hash = 53 * hash + this.getX();
         hash = hash + this.getY();
         return hash;
+    }
+
+
+    public boolean onEast( Square other ) {
+        if ( other.getX() -1 == this.getX() && this.onSameRank(other) )
+            return true;
+        else
+            return false;
+    }
+
+
+    public boolean onWest( Square other ) {
+
+        if (other.getX() + 1 == this.getX() && this.onSameRank(other))
+            return true;
+        else
+            return false;
+    }
+
+
+    public boolean onNorth( Square other ) {
+
+        if (other.getY() + 1 == this.getX() && this.onSameFile(other))
+            return true;
+        else
+            return false;
+    }
+
+    public boolean onSouth( Square other ) {
+
+        if (other.getY() - 1 == this.getX() && this.onSameFile(other))
+            return true;
+        else
+            return false;
+    }
+
+    public boolean onSameRank( Square other ) {
+        if ( other.getY() == this.getY()  )
+            return true;
+        else
+            return false;
+    }
+
+    public boolean onSameFile( Square other ) {
+        if ( other.getX() == this.getX()  )
+            return true;
+        else
+            return false;
     }
 }

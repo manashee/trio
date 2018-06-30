@@ -64,6 +64,29 @@ public class BoardTest {
         Trio[] array = {new Trio(0, 0, 1, 0, 1, 1)};
         Assert.assertArrayEquals(b1.calcTriominos(2, 2, new Square(0, 0)), array);
     }
+
+
+    @Test
+    public void getTotalUnOccupiedSquaresTest() {
+        Board b1 = new Board(2, 2);
+        Square [] array = {new Square(0, 0) , new Square (0,1), new Square (1,0), new Square (1,1)};
+        Assert.assertArrayEquals(b1.getTotalUnOccupiedSquares(2, 2), array);
+    }
+
+
+    @Test
+    public void getSqauresTest() {
+        Board b1 = new Board(2, 2);
+        Square [] array = {new Square(0, 0) , new Square (0,1), new Square (1,0), new Square (1,1)};
+        Assert.assertArrayEquals(b1.getSquares(), array);
+    }
+
+    @Test
+    public void addTriominoTest() {
+        Board b1 = new Board(2, 2);
+        Square [] array = {new Square(0, 0) , new Square (0,1), new Square (1,0), new Square (1,1)};
+        Assert.assertArrayEquals(b1.getTotalUnOccupiedSquares(2, 2), array);
+    }
 }
 
 
